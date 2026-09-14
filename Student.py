@@ -14,8 +14,8 @@ def display_meua():
     print("2 . search_by_student_id ")
     print("3 . Insert_student")
     print("4 . update_Student")
-    print("5 .delete_Student")
-    print("6 .Exit")
+    print("5 . delete_Student")
+    print("6 . Exit")
 def display_student():
     
     df=pd.read_sql("select student_id,first_name,last_name,phone from student limit 4",conn)
@@ -53,9 +53,6 @@ def update_Student():
      except Exception as e:
          print(f"errors the update : {e}")
          conn.rollback()
-def Exit():
-    print("Goodbye!!")
-    conn.close()
 
 def delete_Student():
     try:
@@ -68,6 +65,10 @@ def delete_Student():
     except Exception as e:
           print(f"errors the delete : {e}")
           conn.rollback()
+def Exit():
+    print("Goodbye!!")
+    conn.close()
+
 while True:
     display_meua()
     choice=input("Enter a choice (1-6):")
